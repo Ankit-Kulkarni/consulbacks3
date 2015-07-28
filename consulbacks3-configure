@@ -1,0 +1,38 @@
+#!/bin/env python
+
+
+# # creating a config file to read attributes from
+#
+# FILENAME = "s3consul.config"
+#
+import os
+# home of the user
+HOME = os.path.expanduser("~")
+CONFIG_FILE = ".s3consul.config"
+
+option = "n"
+AWS_ACCESS_KEY_ID =""
+AWS_SECRET_ACCESS_KEY = ""
+BUCKET_NAME = ""
+while option == "n" or option == "n":
+    print "Press ctrl + c to exit "
+    AWS_ACCESS_KEY_ID = raw_input("Enter the AWS ACCESS KEY ")
+    AWS_SECRET_ACCESS_KEY = raw_input("Enter the AWS SECRET KEY ")
+    BUCKET_NAME = raw_input("Enter the bucket name ")
+    CONSUL_DATA_URL = raw_input("Enter url or leave blank for default : Default is set to - 'http://localhost:8500/v1/kv/?recurse' ")
+    option = raw_input("save settings [y/n] ")
+
+os.chdir(HOME)
+f = open(CONFIG_FILE, 'w')
+s  = "AWS_ACCESS_KEY_ID " + str(AWS_ACCESS_KEY_ID) + str("\n")
+f.write(s)
+s = "AWS_SECRET_ACCESS_KEY " + str(AWS_SECRET_ACCESS_KEY) + str("\n")
+f.write(s)
+s = "UPLOAD_BUCKET_NAME " + str(BUCKET_NAME) + str("\n")
+f.write(s)
+
+if CONSUL_DATA_URL == "" :
+    CONSUL_DATA_URL = "http://localhost:8500/v1/kv/?recurse"
+s = "CONSUL_DATA_URL " + str(CONSUL_DATA_URL) + str("\n")
+f.write(s)
+f.close()
