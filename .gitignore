@@ -1,6 +1,0 @@
-*.pyc
-*che__/
-*.pyd
-
-dist/
-easyaws.egg-info/.pyc
