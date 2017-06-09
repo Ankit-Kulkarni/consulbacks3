@@ -1,4 +1,6 @@
-# consulbacks3
+# consulbacks3 <img align="right" width="auto" src="https://codeclimate.com/github/Ankit-Kulkarni/consulbacks3/badges/gpa.svg">  
+ 
+												
 This package is preset on pypi at  [consulbacks3](https://pypi.python.org/pypi/consulbacks3)
 This is the package to create consul backup , zip it and push the same to the s3 for the backup purpose.
 
